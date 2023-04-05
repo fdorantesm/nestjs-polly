@@ -1,0 +1,43 @@
+{
+  "name": "nestjs-dynamic-module-template",
+  "version": "1.0.0",
+  "description": "A nestjs dynamic module template",
+  "author": "Fernando Dorantes",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint \"lib/**/*.ts\" --fix",
+    "format": "prettier \"lib/**/*.ts\" --write",
+    "build": "rimraf -rf dist && tsc -p tsconfig.json",
+    "precommit": "lint-staged",
+    "prepublish:npm": "npm run build",
+    "publish:npm": "npm publish --access public",
+    "prerelease": "npm run build",
+    "release": "release-it",
+    "prepare": "husky install"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.0 || ^9.0.0",
+    "rxjs": "^7.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.4.4",
+    "@commitlint/config-angular": "17.4.4",
+    "@nestjs/common": "9.3.10",
+    "@types/node": "18.15.3",
+    "@typescript-eslint/eslint-plugin": "5.55.0",
+    "@typescript-eslint/parser": "5.55.0",
+    "eslint": "8.36.0",
+    "eslint-config-prettier": "8.7.0",
+    "eslint-plugin-import": "2.27.5",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.0",
+    "prettier": "2.8.4",
+    "release-it": "15.8.0",
+    "rimraf": "4.4.0",
+    "rxjs": "7.8.0",
+    "typescript": "4.9.5"
+  },
+  "lint-staged": {
+    "**/*.{ts,json}": []
+  }
+}

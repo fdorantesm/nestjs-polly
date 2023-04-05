@@ -1,0 +1,1 @@
+export const MY_MODULE_OPTIONS = "MY_MODULE_OPTIONS";
