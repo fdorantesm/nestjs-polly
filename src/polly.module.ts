@@ -47,7 +47,7 @@ export class PollyModule {
     };
 
     const providers = [
-      ...this.createAsyncProviders(options),
+      ...this.createAsyncProviders(options, connection),
       pollyConnectionProvider
     ];
 
@@ -60,13 +60,14 @@ export class PollyModule {
   }
 
   private static createAsyncProviders(
-    options: PollyModuleAsyncOptions
+    options: PollyModuleAsyncOptions,
+    connection?: string
   ): Provider[] {
     if (options.useExisting || options.useFactory) {
-      return [this.createAsyncOptionsProvider(options)];
+      return [this.createAsyncOptionsProvider(options, connection)];
     }
     return [
-      this.createAsyncOptionsProvider(options),
+      this.createAsyncOptionsProvider(options, connection),
       {
         provide: options.useClass,
         useClass: options.useClass
@@ -75,17 +76,18 @@ export class PollyModule {
   }
 
   private static createAsyncOptionsProvider(
-    options: PollyModuleAsyncOptions
+    options: PollyModuleAsyncOptions,
+    connection?: string
   ): Provider {
     if (options.useFactory) {
       return {
-        provide: POLLY_MODULE_OPTIONS_TOKEN,
+        provide: getPollyOptionsToken(connection),
         useFactory: options.useFactory,
         inject: options.inject || []
       };
     }
     return {
-      provide: POLLY_MODULE_OPTIONS_TOKEN,
+      provide: getPollyOptionsToken(connection),
       useFactory: async (optionsFactory: PollyOptionsFactory) =>
         await optionsFactory.config(),
       inject: [options.useExisting || options.useClass]
