@@ -1,8 +1,8 @@
 {
-  "name": "nestjs-dynamic-module-template",
+  "name": "nestjs-polly",
   "version": "1.0.0",
-  "description": "A nestjs dynamic module template",
-  "author": "Fernando Dorantes",
+  "description": "AWS Polly module for NestJS",
+  "author": "Fernando Dorantes <fernando@dorant.es>",
   "license": "MIT",
   "scripts": {
     "lint": "eslint \"lib/**/*.ts\" --fix",
@@ -39,5 +39,8 @@
   },
   "lint-staged": {
     "**/*.{ts,json}": []
+  },
+  "dependencies": {
+    "@aws-sdk/client-polly": "^3.306.0"
   }
 }

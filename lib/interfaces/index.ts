@@ -1,1 +1,1 @@
-export * from "./my-module-options.interface";
+export * from './polly-module-options.interface';

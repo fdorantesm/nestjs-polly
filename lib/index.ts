@@ -1,3 +1,4 @@
-export * from "./my.module";
-export * from "./my.service";
-export * from "./interfaces";
+export * from './polly.module';
+export * from './interfaces';
+
+export { PollyClientConfig } from '@aws-sdk/client-polly';
