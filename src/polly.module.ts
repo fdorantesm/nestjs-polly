@@ -3,13 +3,13 @@ import {
   PollyModuleAsyncOptions,
   PollyOptionsFactory
 } from './interfaces/polly-module-options.interface';
-import { PollyOptions } from './interfaces/polly-options.interface';
 import {
   createPollyConnection,
   getPollyConnectionToken,
   getPollyOptionsToken
 } from './polly.connection';
 import { POLLY_MODULE_OPTIONS_TOKEN } from './polly.constants';
+import { PollyOptions } from './interfaces/polly-options.interface';
 
 @Global()
 @Module({})
