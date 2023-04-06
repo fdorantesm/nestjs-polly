@@ -1,6 +1,6 @@
 {
   "name": "nestjs-polly",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "AWS Polly module for NestJS",
   "author": "Fernando Dorantes <fernando@dorant.es>",
   "main": "dist/index.js",
@@ -18,7 +18,8 @@
   },
   "peerDependencies": {
     "@nestjs/common": "^8.0.0 || ^9.0.0",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "@aws-sdk/client-polly": "^3.306.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.4.4",
@@ -40,8 +41,5 @@
   },
   "lint-staged": {
     "**/*.{ts,json}": []
-  },
-  "dependencies": {
-    "@aws-sdk/client-polly": "^3.306.0"
   }
 }
