@@ -1,4 +1,5 @@
 export * from './polly.module';
 export * from './interfaces';
+export * from './polly.decorator';
 
-export { PollyClientConfig } from '@aws-sdk/client-polly';
+export { PollyClient, PollyClientConfig } from '@aws-sdk/client-polly';
