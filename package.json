@@ -1,10 +1,27 @@
 {
   "name": "nestjs-polly",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "AWS Polly module for NestJS",
   "author": "Fernando Dorantes <fernando@dorant.es>",
   "main": "dist/index.js",
   "license": "MIT",
+  "keywords": [
+    "nest",
+    "nestjs",
+    "aws",
+    "polly",
+    "voice",
+    "speech",
+    "talk",
+    "tell",
+    "conversation",
+    "speak"
+  ],
+  "files": [
+    "dist",
+    "index.js",
+    "index.d.ts"
+  ],
   "scripts": {
     "lint": "eslint \"lib/**/*.ts\" --fix",
     "format": "prettier \"lib/**/*.ts\" --write",
