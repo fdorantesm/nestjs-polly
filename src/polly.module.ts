@@ -25,9 +25,12 @@ export class PollyModule {
       useValue: createPollyConnection(options)
     };
 
+    const providers = [pollyOptionsProvider, pollyConnectionProvider];
+
     return {
       module: PollyModule,
-      providers: [pollyOptionsProvider, pollyConnectionProvider]
+      exports: providers,
+      providers
     };
   }
 
@@ -35,7 +38,7 @@ export class PollyModule {
     options: PollyModuleAsyncOptions,
     connection?: string
   ): DynamicModule {
-    const s3ConnectionProvider: Provider = {
+    const pollyConnectionProvider: Provider = {
       provide: getPollyConnectionToken(connection),
       useFactory(options: PollyModuleAsyncOptions) {
         return createPollyConnection(options);
@@ -43,10 +46,16 @@ export class PollyModule {
       inject: [getPollyOptionsToken(connection)]
     };
 
+    const providers = [
+      ...this.createAsyncProviders(options),
+      pollyConnectionProvider
+    ];
+
     return {
       module: PollyModule,
       imports: options.imports || [],
-      providers: [...this.createAsyncProviders(options)]
+      exports: providers,
+      providers
     };
   }
 
