@@ -14,7 +14,7 @@ export function getPollyConnectionToken(connection?: string): string {
   }_${POLLY_MODULE_CONNECTION_TOKEN}`;
 }
 
-export function getPollyOptionsToken(connection: string): string {
+export function getPollyOptionsToken(connection?: string): string {
   return `${
     connection || POLLY_MODULE_CONNECTION
   }_${POLLY_MODULE_CONNECTION_TOKEN}`;

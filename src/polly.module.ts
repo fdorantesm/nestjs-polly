@@ -16,7 +16,7 @@ import { PollyOptions } from './interfaces/polly-options.interface';
 export class PollyModule {
   static register(options: PollyOptions, connection?: string): DynamicModule {
     const pollyOptionsProvider: Provider = {
-      provide: POLLY_MODULE_OPTIONS_TOKEN,
+      provide: getPollyOptionsToken(connection),
       useValue: options
     };
 
