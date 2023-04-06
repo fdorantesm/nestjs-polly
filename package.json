@@ -1,6 +1,6 @@
 {
   "name": "nestjs-polly",
-  "version": "1.0.14",
+  "version": "1.0.17",
   "description": "AWS Polly module for NestJS",
   "author": "Fernando Dorantes <fernando@dorant.es>",
   "main": "dist/index.js",

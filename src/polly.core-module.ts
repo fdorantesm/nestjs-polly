@@ -1,14 +1,11 @@
 import { Global, Module, DynamicModule, Provider } from '@nestjs/common';
-import {
-  PollyModuleAsyncOptions,
-  PollyModuleOptions,
-  PollyModuleOptionsFactory
-} from './interfaces';
+import { PollyModuleAsyncOptions, PollyModuleOptions } from './interfaces';
 import {
   createPollyConnection,
   getPollyConnectionToken,
   getPollyOptionsToken
 } from './polly.tokens';
+import { PollyOptionsFactory } from './interfaces/polly-module-factory-options';
 
 @Global()
 @Module({})
@@ -101,9 +98,9 @@ export class PollyCoreModule {
 
     return {
       provide: getPollyOptionsToken(connection),
-      async useFactory(
-        optionsFactory: PollyModuleOptionsFactory
-      ): Promise<PollyModuleOptions> {
+      useFactory: async (
+        optionsFactory: PollyOptionsFactory
+      ): Promise<PollyModuleOptions> => {
         return await optionsFactory.createPollyModuleOptions();
       },
       inject: [options.useClass || options.useExisting]
