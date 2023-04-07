@@ -19,7 +19,7 @@ export class PollyModule {
     };
   }
 
-  static async registerAsync(
+  static async forRootAsync(
     options: PollyModuleAsyncOptions,
     connection?: string
   ): Promise<DynamicModule> {
@@ -29,5 +29,15 @@ export class PollyModule {
       imports: [PollyCoreModule.forRootAsync(options, connection)],
       exports: [PollyCoreModule]
     };
+  }
+
+  /**
+   * @deprecated Use forRootAsync method instead. This method will be removed next version.
+   */
+  static async registerAsync(
+    options: PollyModuleAsyncOptions,
+    connection?: string
+  ): Promise<DynamicModule> {
+    return this.forRootAsync(options, connection);
   }
 }
